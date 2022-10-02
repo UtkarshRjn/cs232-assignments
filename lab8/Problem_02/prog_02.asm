@@ -1,0 +1,19 @@
+		AREA 	GCD_CALULATOR,CODE,READWRITE
+		ENTRY
+START
+		ADR		R0,source_array_ROM 				
+		LDRB	R1,[R0],#1
+		LDRB	R2,[R0]		
+
+LOOP
+		CMP		R1,R2
+		SUBGT	R1,R1,R2
+		SUBLT	R2,R2,R1
+		BNE		LOOP
+		MOV		R3,R1
+		
+HERE	B		HERE
+
+source_array_ROM	DCB		0x42,0x36
+
+		END

@@ -1,0 +1,78 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000                 AREA             GCD_CALULATOR,CODE,READWRITE
+    2 00000000                 ENTRY
+    3 00000000         START
+    4 00000000 E28F001C        ADR              R0,source_array_ROM
+    5 00000004 E4D01001        LDRB             R1,[R0],#1
+    6 00000008 E5D02000        LDRB             R2,[R0]
+    7 0000000C         
+    8 0000000C         LOOP
+    9 0000000C E1510002        CMP              R1,R2
+   10 00000010 C0411002        SUBGT            R1,R1,R2
+   11 00000014 B0422001        SUBLT            R2,R2,R1
+   12 00000018 1AFFFFFB        BNE              LOOP
+   13 0000001C E1A03001        MOV              R3,R1
+   14 00000020         
+   15 00000020 EAFFFFFE 
+                       HERE    B                HERE
+   16 00000024         
+   17 00000024 42 36   source_array_ROM
+                               DCB              0x42,0x36
+   18 00000026         
+   19 00000026                 END
+Command Line: --debug --xref --diag_suppress=9931 --apcs=interwork --depend=.\o
+bjects\prog_02.d -o.\objects\prog_02.o -IC:\Keil_v5\ARM\RV31\INC --predefine="_
+_UVISION_VERSION SETA 536" --list=.\listings\prog_02.lst prog_02.asm
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+GCD_CALULATOR 00000000
+
+Symbol: GCD_CALULATOR
+   Definitions
+      At line 1 in file prog_02.asm
+   Uses
+      None
+Comment: GCD_CALULATOR unused
+HERE 00000020
+
+Symbol: HERE
+   Definitions
+      At line 15 in file prog_02.asm
+   Uses
+      At line 15 in file prog_02.asm
+Comment: HERE used once
+LOOP 0000000C
+
+Symbol: LOOP
+   Definitions
+      At line 8 in file prog_02.asm
+   Uses
+      At line 12 in file prog_02.asm
+Comment: LOOP used once
+START 00000000
+
+Symbol: START
+   Definitions
+      At line 3 in file prog_02.asm
+   Uses
+      None
+Comment: START unused
+source_array_ROM 00000024
+
+Symbol: source_array_ROM
+   Definitions
+      At line 17 in file prog_02.asm
+   Uses
+      At line 4 in file prog_02.asm
+Comment: source_array_ROM used once
+5 symbols
+336 symbols in table
